@@ -6,7 +6,9 @@
         </template>
     </Toolbar>
 
-    <Sidebar v-model:visible="visibleLeft">Feeds</Sidebar>
+    <Sidebar v-model:visible="visibleLeft">
+        <SideMenu :API_KEY="API_KEY"></SideMenu>
+    </Sidebar>
     <div class="p-grid">
         <div class="p-md-4 p-md-offset-4 p-sm-12 p-sm-offset-1">
             <MainContent :articles="articles"></MainContent>
@@ -21,8 +23,9 @@ import { API_KEY } from "./env"
 import Sidebar from "primevue/sidebar"
 import Button from "primevue/button"
 import Toolbar from "primevue/toolbar"
-import MainContent from "./components/MainContent"
 import ScrollTop from "primevue/scrolltop"
+import MainContent from "./components/MainContent"
+import SideMenu from "./components/SideMenu"
 
 export default {
     name: "App",
@@ -32,6 +35,7 @@ export default {
         Toolbar,
         MainContent,
         ScrollTop,
+        SideMenu,
     },
     data() {
         return {
