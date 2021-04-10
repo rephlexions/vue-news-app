@@ -6,6 +6,8 @@
             optionLabel="name"
             :filter="true"
             listStyle="max-height:100vh"
+            v-model="selectedSource"
+            @click="selectSource"
         />
     </div>
 </template>
@@ -24,7 +26,14 @@ export default {
     data() {
         return {
             sources: [],
+            selectedSource: [],
         }
+    },
+    methods: {
+        selectSource() {
+            console.log(this.selectedSource.id)
+            this.$emit("selectsource", this.selectedSource.id)
+        },
     },
     created() {
         axios
@@ -35,8 +44,6 @@ export default {
             .then((response) => {
                 //this.articles = response.data.articles
                 this.sources = response.data.sources
-                console.log("data:")
-                console.log(response.data.sources) // This will give you access to the full object
             })
             .catch((e) => {
                 this.errors.push(e)

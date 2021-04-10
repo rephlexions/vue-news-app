@@ -6,8 +6,8 @@
         </template>
     </Toolbar>
 
-    <Sidebar v-model:visible="visibleLeft">
-        <SideMenu :API_KEY="API_KEY"></SideMenu>
+    <Sidebar v-model:visible="visibleLeft" @click="visibleLeft = false">
+        <SideMenu :API_KEY="API_KEY" @selectsource="setResource"></SideMenu>
     </Sidebar>
     <div class="p-grid">
         <div class="p-md-4 p-md-offset-4 p-sm-12 p-sm-offset-1">
@@ -54,12 +54,27 @@ export default {
             .then((response) => {
                 //this.articles = response.data.articles
                 this.articles = response.data.articles
-                console.log("data:")
-                console.log(response.data.articles) // This will give you access to the full object
             })
             .catch((e) => {
                 this.errors.push(e)
             })
+    },
+    methods: {
+        setResource(source) {
+            axios
+                .get(
+                    "https://newsapi.org/v2/top-headlines?sources=" +
+                        source +
+                        "&apiKey=" +
+                        this.API_KEY
+                )
+                .then((response) => {
+                    this.articles = response.data.articles
+                })
+                .catch((e) => {
+                    this.errors.push(e)
+                })
+        },
     },
 }
 </script>
