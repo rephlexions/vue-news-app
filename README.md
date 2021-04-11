@@ -1,7 +1,7 @@
 # news-app
 
-[![2021-04-11-16-44-15-Trim-Trim.gif](https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.gif)](https://gifyu.com/image/rL11)
-<img src="https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.gif" width="960" height="540" />
+![2021-04-11-16-44-15-Trim-Trim.gif](https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.gif)
+
 
 ## Project setup
 ```
