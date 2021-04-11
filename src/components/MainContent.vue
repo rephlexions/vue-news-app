@@ -6,17 +6,30 @@
     >
         <Card>
             <template #header>
-                <img alt="user header" v-bind:src="article.urlToImage" />
+                <img alt="user header" v-bind:src="article.image" />
             </template>
             <template #title>{{ article.title }}</template>
             <template #content>
                 {{ article.description }}
             </template>
             <template #footer>
-                <Tag value="">{{ article.source.id }}</Tag>
-                <a :href="article.url" target="_blank">
-                    <Button icon="pi" label="Read more" />
-                </a>
+                <div class="p-grid">
+                    <div class="p-col-3" style="padding-top: 1.4em">
+                        <Tag value="" style="text-overflow: ellipsis">{{
+                            article.source
+                        }}</Tag>
+                    </div>
+                    <div class="p-col-3" style="padding-top: 1.4em">
+                        <Tag severity="primary" value="">{{
+                            article.category
+                        }}</Tag>
+                    </div>
+                    <div class="p-col-6">
+                        <a :href="article.url" target="_blank">
+                            <Button icon="pi" label="Read more" />
+                        </a>
+                    </div>
+                </div>
             </template>
         </Card>
     </div>
@@ -46,6 +59,6 @@ a {
     text-decoration: none;
 }
 .article {
-    margin-bottom: 2em;
+    margin-top: 2em;
 }
 </style>
