@@ -6,7 +6,7 @@
     >
         <Card>
             <template #header>
-                <img alt="user header" v-bind:src="article.image" />
+                <img alt="" v-bind:src="article.urlToImage" />
             </template>
             <template #title>{{ article.title }}</template>
             <template #content>
@@ -14,20 +14,13 @@
             </template>
             <template #footer>
                 <div class="p-grid">
-                    <div class="p-col-3" style="padding-top: 1.4em">
-                        <Tag value="" style="text-overflow: ellipsis">{{
-                            article.source
-                        }}</Tag>
-                    </div>
-                    <div class="p-col-3" style="padding-top: 1.4em">
-                        <Tag severity="primary" value="">{{
-                            article.category
-                        }}</Tag>
-                    </div>
-                    <div class="p-col-6">
+                    <div class="p-col-4">
                         <a :href="article.url" target="_blank">
                             <Button icon="pi" label="Read more" />
                         </a>
+                    </div>
+                    <div class="p-col-4 p-offset-4" style="margin-top: 1em">
+                        <Tag value="">{{ article.source.id }}</Tag>
                     </div>
                 </div>
             </template>
@@ -59,6 +52,6 @@ a {
     text-decoration: none;
 }
 .article {
-    margin-top: 2em;
+    margin-bottom: 2em;
 }
 </style>

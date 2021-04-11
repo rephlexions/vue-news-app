@@ -1,26 +1,14 @@
 <template>
     <Toolbar>
         <template #left>
+            <Button icon="pi pi-bars" @click="visibleLeft = true" />
             <div id="title" class="p-text-normal p-ml-4">News Reader</div>
         </template>
-        <template #right>
-            <Button
-                label="General"
-                @click="setResource('general')"
-                class="p-mr-2"
-            />
-            <Button
-                label="Technology"
-                @click="setResource('technology')"
-                class="p-mr-2"
-            />
-            <Button
-                label="Science"
-                @click="setResource('science')"
-                class="p-mr-2"
-            />
-        </template>
     </Toolbar>
+
+    <Sidebar v-model:visible="visibleLeft" @click="visibleLeft = false">
+        <SideMenu :API_KEY="API_KEY" @selectsource="setResource"></SideMenu>
+    </Sidebar>
     <div class="p-grid">
         <div class="p-md-4 p-md-offset-4 p-sm-12 p-sm-offset-1">
             <MainContent :articles="articles"></MainContent>
@@ -32,22 +20,26 @@
 <script>
 import axios from "axios"
 import { API_KEY } from "./env"
+import Sidebar from "primevue/sidebar"
 import Button from "primevue/button"
 import Toolbar from "primevue/toolbar"
 import ScrollTop from "primevue/scrolltop"
 import MainContent from "./components/MainContent"
+import SideMenu from "./components/SideMenu"
 
 export default {
     name: "App",
     components: {
+        Sidebar,
         Button,
         Toolbar,
         MainContent,
         ScrollTop,
+        SideMenu,
     },
     data() {
         return {
-            visibleTop: false,
+            visibleLeft: false,
             articles: [],
             errors: [],
             API_KEY: API_KEY,
@@ -56,11 +48,12 @@ export default {
     created() {
         axios
             .get(
-                "http://api.mediastack.com/v1/news?categories=general&languages=en&access_key=" +
+                "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=" +
                     this.API_KEY
             )
             .then((response) => {
-                this.articles = response.data.data
+                //this.articles = response.data.articles
+                this.articles = response.data.articles
             })
             .catch((e) => {
                 this.errors.push(e)
@@ -70,13 +63,13 @@ export default {
         setResource(source) {
             axios
                 .get(
-                    "http://api.mediastack.com/v1/news?categories=" +
+                    "https://newsapi.org/v2/top-headlines?sources=" +
                         source +
-                        "&languages=en&access_key=" +
+                        "&apiKey=" +
                         this.API_KEY
                 )
                 .then((response) => {
-                    this.articles = response.data.data
+                    this.articles = response.data.articles
                 })
                 .catch((e) => {
                     this.errors.push(e)
