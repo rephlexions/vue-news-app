@@ -1,5 +1,5 @@
 # news-app
-News appication built with [VueJS 3](https://v3.vuejs.org/), [Prime Vue](https://www.primefaces.org/primevue/) and [NewsAPI](https://newsapi.org/).
+News application built with [VueJS 3](https://v3.vuejs.org/), [Prime Vue](https://www.primefaces.org/primevue/) and [NewsAPI](https://newsapi.org/).
 
 It retrievers headlines and articles live from all over the web and allows to switch between them.
 
