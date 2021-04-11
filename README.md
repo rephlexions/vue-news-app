@@ -1,5 +1,8 @@
 # news-app
 
+![2021-04-11-16-44-15-Trim-Trim.gif](https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.gif)
+
+[![2021-04-11-16-44-15-Trim-Trim.md.gif](https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.md.gif)](https://gifyu.com/image/rL11)
 ## Project setup
 ```
 npm install
