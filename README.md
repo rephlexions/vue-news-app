@@ -1,9 +1,16 @@
 # news-app
+News appication built with [VueJS 3](https://v3.vuejs.org/), [Prime Vue](https://www.primefaces.org/primevue/) and [NewsAPI](https://newsapi.org/).
 
-![2021-04-11-16-44-15-Trim-Trim.gif](https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.gif)
+It retrievers headlines and articles live from all over the web and allows to switch between them.
 
-[![2021-04-11-16-44-15-Trim-Trim.md.gif](https://s4.gifyu.com/images/2021-04-11-16-44-15-Trim-Trim.md.gif)](https://gifyu.com/image/rL11)
+## Demo
 ![Farmers Market Finder Demo](demo/demo.gif)
+
+## What I learned
+* How to integrate Prime Vue components in VueJS.
+* How to communicate between Vue components using the Event Bus approach.
+* How to connect the Vue app with a backend-service, retrieve the response object and integrate it into the template.  
+
 ## Project setup
 ```
 npm install
